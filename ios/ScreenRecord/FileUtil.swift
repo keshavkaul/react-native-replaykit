@@ -9,7 +9,7 @@ import Foundation
 
 @objc public class ReplayFileUtil:NSObject
 {
-    class func createReplaysFolder()
+    @objc class func createReplaysFolder()
     {
         // path to documents directory
         let documentDirectoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first

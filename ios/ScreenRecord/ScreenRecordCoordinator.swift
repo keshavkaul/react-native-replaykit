@@ -25,7 +25,7 @@ import AVKit
         
     }
 
-    func startRecording(withFileName fileName: String, recordingHandler: @escaping (Error?) -> Void,onCompletion: @escaping (Error?)->Void)
+    @objc func startRecording(withFileName fileName: String, recordingHandler: @escaping (Error?) -> Void,onCompletion: @escaping (Error?)->Void)
     {
 //        self.viewOverlay.show()
         screenRecorder.startRecording(withFileName: fileName) { (error) in
@@ -34,7 +34,7 @@ import AVKit
         }
     }
 
-    func stopRecording()
+    @objc func stopRecording()
     {
         screenRecorder.stopRecording { (error) in
 //            self.viewOverlay.hide()
@@ -42,17 +42,17 @@ import AVKit
         }
     }
     
-    func removeRecording(withFilePath fileURL: String)
+    @objc func removeRecording(withFilePath fileURL: String)
     {
         ReplayFileUtil.deleteItem(at: URL(fileURLWithPath: fileURL))
     }
     
-    func copyRecording(withFilePath fileURL: String, destFileURL: String)
+    @objc func copyRecording(withFilePath fileURL: String, destFileURL: String)
     {
         ReplayFileUtil.copyItem(at: URL(fileURLWithPath: fileURL), to: URL(fileURLWithPath: destFileURL))
     }
     
-    func previewRecording (withFileName fileURL: String) {
+    @objc func previewRecording (withFileName fileURL: String) {
         if UIVideoEditorController.canEditVideo(atPath: fileURL) {
             previewDelegateView.setCoordinator(coordinator: self)
             let rootView = UIApplication.getTopMostViewController()
@@ -65,7 +65,7 @@ import AVKit
         }
     }
 
-    func listAllReplays() -> Array<String>
+    @objc func listAllReplays() -> Array<String>
     {
         return ReplayFileUtil.fetchAllReplays()
     }
