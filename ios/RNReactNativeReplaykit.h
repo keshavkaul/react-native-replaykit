@@ -8,8 +8,8 @@
 #endif
 
 #import <ReplayKit/ReplayKit.h>
-#import "RNReactNativeReplaykit-Swift.h"
 
+@class ScreenRecordCoordinator;
 
 @interface RNReactNativeReplaykit : NSObject <RCTBridgeModule>
 
